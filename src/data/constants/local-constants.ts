@@ -1,0 +1,1 @@
+export const busStop: [number, number] = [-3.0798394966089697, -59.934165808769066];
