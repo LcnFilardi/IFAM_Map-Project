@@ -89,22 +89,22 @@ export function UserLocationMarker() {
     requestLocation();
   }, [requestLocation]);
 
-  // if (locationError) {
-  //   return (
-  //     <div className="absolute bottom-4 left-4 z-[1000] max-w-xs rounded-lg bg-white p-3 shadow-lg">
-  //       <p className="mb-2 text-sm text-slate-700">{locationError}</p>
+  if (locationError) {
+    return (
+      <div className="absolute bottom-4 left-4 z-[1000] max-w-xs rounded-lg bg-white p-3 shadow-lg">
+        <p className="mb-2 text-sm text-slate-700">{locationError}</p>
 
-  //       <button
-  //         type="button"
-  //         onClick={requestLocation}
-  //         disabled={requesting}
-  //         className="rounded-md bg-blue-600 px-3 py-2 text-sm text-white disabled:opacity-50"
-  //       >
-  //         {requesting ? "Buscando GPS..." : "Tentar novamente"}
-  //       </button>
-  //     </div>
-  //   );
-  // }
+        <button
+          type="button"
+          onClick={requestLocation}
+          disabled={requesting}
+          className="rounded-md bg-blue-600 px-3 py-2 text-sm text-white disabled:opacity-50"
+        >
+          {requesting ? "Buscando GPS..." : "Tentar novamente"}
+        </button>
+      </div>
+    );
+  }
 
   return (
     <>
