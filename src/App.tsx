@@ -1,6 +1,8 @@
-import CampusMap from "@/components/campus-map";
 import { Header } from "@/components/header";
 import { Section } from "@/components/section";
+import { lazy, Suspense } from "react";
+
+const CampusMap = lazy(() => import("@/components/campus-map"));
 
 export default function App() {
   return (
@@ -10,7 +12,9 @@ export default function App() {
       <div className="p-4">
         <Section />
 
-        <CampusMap />
+        <Suspense fallback={<p>Carregando mapa...</p>}>
+          <CampusMap />
+        </Suspense>
       </div>
     </main>
   );
