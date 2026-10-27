@@ -1,6 +1,8 @@
 import type { LatLngBoundsExpression } from "leaflet";
 
-export const campusPosition: [number, number] = [-3.079984312, -59.93390095];
+export const campusPosition: [number, number] = [-3.079301433136991, -59.93227996497157];
+
+export const myPosition: [number, number] = [-3.0708086881812364, -60.067886605403984];
 
 export const campusBounds: LatLngBoundsExpression = [
   [-3.0855, -59.9400], // canto sudoeste
