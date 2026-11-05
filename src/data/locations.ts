@@ -1,5 +1,5 @@
-import type { CampusIcon } from '@/components/icons-config';
-import { academyIcon, amazonStoreIcon, auditoriumIcon, busIcon, cafeteriaIcon, classroomIcon, entranceIcon, fieldIcon, labsIcon, libraryIcon, maintenanceIcon, poolIcon, sportCourtIcon } from '@/components/icons-config';
+
+import { academyIcon, amazonStoreIcon, auditoriumIcon, busIcon, cafeteriaIcon, classroomIcon, entranceIcon, fieldIcon, labsIcon, libraryIcon, maintenanceIcon, poolIcon, sportCourtIcon, type CampusIcon } from '@/config/icons-config';
 import { academy_area, amazoniaBeeStore, auditorium_area, cafeteria_area, classrooms_area, enginerringLabs_area, maintenance_area, pool_area, sportsCourt } from '@/data/constants/areas-constants';
 import { busStop, library } from '@/data/constants/local-constants';
 

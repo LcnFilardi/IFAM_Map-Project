@@ -1,11 +1,18 @@
 import { LOCATION_OFFSET } from "@/data/constants/adjust-user-location";
 import type { LatLngExpression } from "leaflet";
 import { useCallback, useEffect, useState } from "react";
-import { CircleMarker, Popup, useMap } from "react-leaflet";
+import { Marker, Popup, useMap } from "react-leaflet";
+import { userLocationIcon } from "./user-location-icon";
+
+interface UserLocationMarkerProps {
+  onLocationChange: (position: L.LatLngTuple) => void;
+}
 
 const TARGET_ACCURACY = 0.1;
 
-export function UserLocationMarker() {
+export function UserLocationMarker({
+  onLocationChange,
+}: UserLocationMarkerProps) {
   const map = useMap();
 
   const [position, setPosition] = useState<LatLngExpression | null>(null);
@@ -38,18 +45,18 @@ export function UserLocationMarker() {
         if (currentAccuracy < bestAccuracy) {
           bestAccuracy = currentAccuracy;
 
-          const coords: LatLngExpression = [
+          const userCoords: LatLngExpression = [
             latitude + LOCATION_OFFSET.latitude,
             longitude + LOCATION_OFFSET.longitude,
           ];
 
-          console.log("Coordenadas:", coords);
-
-          setPosition(coords);
+          console.log("Coordenadas:", userCoords);
+          onLocationChange([-3.079583579109498, -59.93361209222095]);
+          setPosition(userCoords);
           setAccuracy(currentAccuracy);
           setLocationError(null);
 
-          map.setView(coords, Math.max(map.getZoom(), 19));
+          map.setView(userCoords, Math.max(map.getZoom(), 19));
         }
 
         // Para a busca quando a precisão desejada for atingida.
@@ -110,15 +117,10 @@ export function UserLocationMarker() {
     <>
       {position && accuracy !== null && (
         <>
-          <CircleMarker
-            center={position}
-            radius={7}
-            pathOptions={{
-              color: "#ffffff",
-              weight: 3,
-              fillColor: "#2563eb",
-              fillOpacity: 1,
-            }}
+          <Marker
+            position={[-3.079583579109498, -59.93361209222095]}
+            icon={userLocationIcon}
+            zIndexOffset={1000}
           >
             <Popup>
               <div>
@@ -130,7 +132,7 @@ export function UserLocationMarker() {
                   : " — buscando maior precisão"}
               </div>
             </Popup>
-          </CircleMarker>
+          </Marker>
         </>
       )}
     </>
