@@ -1,1 +1,0 @@
-export const CAMPUS_RADIUS_METERS = 2000;

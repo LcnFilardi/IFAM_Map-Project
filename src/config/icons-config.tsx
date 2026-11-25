@@ -2,6 +2,7 @@ import { divIcon, type DivIcon } from "leaflet";
 import {
   BookSearch,
   BusFront,
+  CircleDot,
   Construction,
   Cpu,
   Dumbbell,
@@ -101,6 +102,10 @@ export const aranouaBuildingIcon = createIcon(Cpu, {
   fill: "#FFFFFF",
 });
 export const biopsicosocialSectorIcon = createIcon(Toolbox, {
+  color: "#FF8C00",
+  fill: "#FFFFFF",
+});
+export const coveredAreaIcon = createIcon(CircleDot, {
   color: "#FF8C00",
   fill: "#FFFFFF",
 });

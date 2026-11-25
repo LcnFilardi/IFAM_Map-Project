@@ -1,6 +1,6 @@
 
 import { generateUniqueId } from '@/config/generate-unique-id';
-import { academyIcon, aranouaBuildingIcon, auditoriumIcon, biopsicosocialSectorIcon, cafeteriaIcon, classroomIcon, fieldIcon, labsIcon, libraryIcon, maintenanceIcon, poolIcon, sportCourtIcon } from '@/config/icons-config';
+import { academyIcon, aranouaBuildingIcon, auditoriumIcon, biopsicosocialSectorIcon, cafeteriaIcon, classroomIcon, coveredAreaIcon, fieldIcon, labsIcon, libraryIcon, maintenanceIcon, poolIcon, sportCourtIcon } from '@/config/icons-config';
 import { academy_area, aranouaBuilding_area, auditorium_area, biopsicosocialSector_area, cafeteria_area, classrooms_area, classRooms_area_2, covered_area, engineeringClassrooms_area, engineeringLabs_area, landscapingLabs_area, maintenance_area, neabiSector_area, pool_area, sportsCourt } from '@/data/constants/areas-constants';
 import { library } from '@/data/constants/local-constants';
 import type { CampusLocation } from '@/types/campus-locations';
@@ -138,8 +138,8 @@ export const campusLocations: CampusLocation[] = [
     id: generateUniqueId(),
     name: 'Área coberta principal',
     area: covered_area,
-    location: [-3.078712583850932, -59.93394446877399],
-    icon: biopsicosocialSectorIcon,
+    location: [-3.0791680758784854, -59.9334858329515],
+    icon: coveredAreaIcon,
     description: 'Área de convivência e circulação do campus.',
   },
   {
