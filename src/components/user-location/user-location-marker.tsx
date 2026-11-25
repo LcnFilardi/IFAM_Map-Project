@@ -45,15 +45,13 @@ export function UserLocationMarker({
         } = result.coords;
 
         const userCoords: LatLngTuple = [latitude, longitude];
-        console.log("User coordinates:", userCoords);
-        // setPosition(userCoords);
-        setPosition([-3.079793556126813, -59.93260135720921]);
+
+        setPosition(userCoords);
         setAccuracy(currentAccuracy);
         setLocationError(null);
         setRequesting(false);
 
-        // onLocationChange(userCoords);
-        onLocationChange([-3.079793556126813, -59.93260135720921]);
+        onLocationChange(userCoords);
       },
       (error) => {
         let message: string;
