@@ -1,4 +1,4 @@
-import type { CampusLocation } from "@/data/locations";
+import type { CampusLocation } from "@/types/campus-locations";
 import { Popup } from "react-leaflet";
 
 interface PopupContentProps {
