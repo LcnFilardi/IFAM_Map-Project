@@ -3,6 +3,7 @@ import {
   BookSearch,
   BusFront,
   Construction,
+  Cpu,
   Dumbbell,
   GraduationCap,
   LaptopMinimalCheck,
@@ -11,7 +12,7 @@ import {
   Projector,
   Shirt,
   SportShoe,
-  Store,
+  Toolbox,
   UserShield,
   Utensils,
   WavesLadder,
@@ -48,10 +49,6 @@ export const entranceIcon = createIcon(UserShield, {
   fill: "#D3D3D3",
 });
 export const sportCourtIcon = createIcon(SportShoe, {
-  color: "#898989",
-  fill: "#FFFFFF",
-});
-export const amazonStoreIcon = createIcon(Store, {
   color: "#898989",
   fill: "#FFFFFF",
 });
@@ -96,6 +93,14 @@ export const veterinaryClinicIcon = createIcon(PawPrint, {
   fill: "#FFFFFF",
 });
 export const changingRoomIcon = createIcon(Shirt, {
+  color: "#FF8C00",
+  fill: "#FFFFFF",
+});
+export const aranouaBuildingIcon = createIcon(Cpu, {
+  color: "#FF8C00",
+  fill: "#FFFFFF",
+});
+export const biopsicosocialSectorIcon = createIcon(Toolbox, {
   color: "#FF8C00",
   fill: "#FFFFFF",
 });

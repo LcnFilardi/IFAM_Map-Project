@@ -1,5 +1,7 @@
+import { campusBounds, campusPosition } from "@/config/campus-config-constants";
 import { campusLocations } from "@/data/locations";
 import "leaflet/dist/leaflet.css";
+import { X } from "lucide-react";
 import { useState } from "react";
 import { MapContainer, Marker, Polygon, TileLayer } from "react-leaflet";
 import { UserLocationMarker } from "../user-location/user-location-marker";
@@ -17,7 +19,7 @@ export default function CampusMap() {
 
   const [zoom, setZoom] = useState(17);
 
-  const showMarkers = zoom >= 17;
+  const showMarkers = zoom >= 18;
 
   const markerSize = Math.max(6, 10 + (zoom - 16) * 4);
 
@@ -25,15 +27,19 @@ export default function CampusMap() {
     (location) => location.area !== null && location.area.length > 0,
   );
 
+  const handleStopRoute = () => {
+    setDestination(null);
+  };
+
   return (
-    <div className="w-full mt-10 h-[70dvh] min-h-[450px] max-h-[750px] overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
+    <div className=" relative w-full mt-10 h-[70dvh] min-h-[450px] max-h-[750px] overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
       <MapContainer
-        center={[-3.079507307713751, -59.931027809019604]}
-        // maxBounds={campusBounds}
+        center={campusPosition}
+        maxBounds={campusBounds}
         maxBoundsViscosity={1}
-        // minZoom={16}
-        zoom={16}
-        // maxZoom={19}
+        minZoom={17}
+        zoom={17}
+        maxZoom={19}
         scrollWheelZoom
         className="h-full w-full rounded-2xl"
         attributionControl={false}
@@ -75,6 +81,19 @@ export default function CampusMap() {
 
         {userPosition && destination && (
           <MapRouting origin={userPosition} destination={destination} />
+        )}
+
+        {destination && (
+          <div className="absolute bottom-4 right-4 z-[1000]">
+            <button
+              type="button"
+              onClick={handleStopRoute}
+              className="flex rounded-xl gap-2 bg-red-50 px-4 py-3 text-sm font-medium text-red-600 shadow-lg transition hover:bg-red-200"
+            >
+              <X size={18} />
+              Parar rota
+            </button>
+          </div>
         )}
 
         <TileLayer

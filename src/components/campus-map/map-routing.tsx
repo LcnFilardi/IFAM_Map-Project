@@ -11,7 +11,7 @@ interface MapRoutingProps {
 }
 
 const MIN_DISTANCE = 5; // Distância mínima em metros
-const MIN_INTERVAL = 3000; // Intervalo mínimo em milissegundos
+const MIN_INTERVAL = 5000; // Intervalo mínimo em milissegundos
 
 export function MapRouting({ origin, destination }: MapRoutingProps) {
   const map = useMap();

@@ -1,1 +1,1 @@
-export const CAMPUS_RADIUS_METERS = 1500;
+export const CAMPUS_RADIUS_METERS = 2000;

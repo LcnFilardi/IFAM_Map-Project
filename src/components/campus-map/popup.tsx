@@ -9,10 +9,15 @@ interface PopupContentProps {
 export function PopupContent({ location, onRouteClick }: PopupContentProps) {
   return (
     <Popup className="bg-green-200 rounded-2xl p-1">
-      <div className="flex mb-4 gap-2 flex-col">
-        <span className="font-bold">Local: {location.name}</span>
-
-        <span>Descrição: {location.description}</span>
+      <div className="">
+        <p className="flex ">
+          <span className="font-bold ">Local:</span>&nbsp;
+          <span>{location.name}</span>
+        </p>
+        <p className="flex">
+          <span className="font-bold">Descrição:</span>&nbsp;
+          <span>{location.description}</span>
+        </p>
       </div>
 
       <button

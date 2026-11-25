@@ -5,6 +5,6 @@ export type CampusLocation = {
   name: string;
   area: [number, number][] | null;
   location: [number, number];
-  icon?: CampusIcon;
+  icon: CampusIcon;
   description: string;
 };
