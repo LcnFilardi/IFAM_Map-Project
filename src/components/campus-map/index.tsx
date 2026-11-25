@@ -5,7 +5,7 @@ import { MapContainer, Marker, Polygon, TileLayer } from "react-leaflet";
 import {
   campusBounds,
   campusPosition,
-} from "../../data/constants/campus-config-constants";
+} from "../../config/campus-config-constants";
 import { UserLocationMarker } from "../user-location/user-location-marker";
 import { MapRouting } from "./map-routing";
 import { MapZoomTracker } from "./map-zoom-tracker";
@@ -20,30 +20,23 @@ export default function CampusMap() {
   const [destination, setDestination] = useState<L.LatLngTuple | null>(null);
 
   const [zoom, setZoom] = useState(17);
+
+  const showMarkers = zoom >= 17;
+
   const markerSize = Math.max(6, 10 + (zoom - 16) * 4);
 
   const areaLocations = campusLocations.filter(
-    (location) => location.area.length > 0,
+    (location) => location.area !== null && location.area.length > 0,
   );
 
   return (
-    <div
-      className=" w-full
-      mt-10
-    h-[70dvh]
-    min-h-[450px]
-    max-h-[750px]
-    overflow-hidden
-    rounded-2xl
-    border border-slate-200
-    shadow-sm"
-    >
+    <div className="w-full mt-10 h-[70dvh] min-h-[450px] max-h-[750px] overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
       <MapContainer
         center={campusPosition}
         maxBounds={campusBounds}
         maxBoundsViscosity={1}
-        minZoom={17}
-        zoom={17}
+        minZoom={16}
+        zoom={16}
         maxZoom={19}
         scrollWheelZoom
         className="h-full w-full rounded-2xl"
@@ -53,25 +46,26 @@ export default function CampusMap() {
 
         <MapZoomTracker onZoomChange={setZoom} />
 
-        {campusLocations.map((location) => (
-          <Marker
-            key={location.id}
-            position={location.location}
-            icon={location.icon?.(markerSize)}
-          >
-            <PopupContent
-              location={location}
-              onRouteClick={(destination) => {
-                setDestination(destination);
-              }}
-            />
-          </Marker>
-        ))}
+        {showMarkers &&
+          campusLocations.map((location) => (
+            <Marker
+              key={location.id}
+              position={location.location}
+              icon={location.icon?.(markerSize)}
+            >
+              <PopupContent
+                location={location}
+                onRouteClick={(destination) => {
+                  setDestination(destination);
+                }}
+              />
+            </Marker>
+          ))}
 
         {areaLocations.map((location) => (
           <Polygon
             key={location.id}
-            positions={location.area}
+            positions={location.area!}
             pathOptions={{
               color: "#0e0d0d",
               fillColor: "#88e788",

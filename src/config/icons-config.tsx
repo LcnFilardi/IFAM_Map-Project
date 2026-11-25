@@ -7,7 +7,9 @@ import {
   GraduationCap,
   LaptopMinimalCheck,
   Medal,
+  PawPrint,
   Projector,
+  Shirt,
   SportShoe,
   Store,
   UserShield,
@@ -38,7 +40,7 @@ const createIcon =
     });
 
 export const busIcon = createIcon(BusFront, {
-  color: "#000000",
+  color: "#0769fd",
   fill: "#D3D3D3",
 });
 export const entranceIcon = createIcon(UserShield, {
@@ -86,6 +88,14 @@ export const libraryIcon = createIcon(BookSearch, {
   fill: "#FFFFFF",
 });
 export const cafeteriaIcon = createIcon(Utensils, {
+  color: "#FF8C00",
+  fill: "#FFFFFF",
+});
+export const veterinaryClinicIcon = createIcon(PawPrint, {
+  color: "#FF8C00",
+  fill: "#FFFFFF",
+});
+export const changingRoomIcon = createIcon(Shirt, {
   color: "#FF8C00",
   fill: "#FFFFFF",
 });

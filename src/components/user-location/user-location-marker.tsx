@@ -51,7 +51,7 @@ export function UserLocationMarker({
           ];
 
           console.log("Coordenadas:", userCoords);
-          onLocationChange([-3.079583579109498, -59.93361209222095]);
+          onLocationChange(userCoords);
           setPosition(userCoords);
           setAccuracy(currentAccuracy);
           setLocationError(null);
@@ -118,7 +118,7 @@ export function UserLocationMarker({
       {position && accuracy !== null && (
         <>
           <Marker
-            position={[-3.079583579109498, -59.93361209222095]}
+            position={position}
             icon={userLocationIcon}
             zIndexOffset={1000}
           >

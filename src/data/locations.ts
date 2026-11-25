@@ -1,37 +1,19 @@
 
-import { academyIcon, amazonStoreIcon, auditoriumIcon, busIcon, cafeteriaIcon, classroomIcon, entranceIcon, fieldIcon, labsIcon, libraryIcon, maintenanceIcon, poolIcon, sportCourtIcon, type CampusIcon } from '@/config/icons-config';
-import { academy_area, amazoniaBeeStore, auditorium_area, cafeteria_area, classrooms_area, enginerringLabs_area, maintenance_area, pool_area, sportsCourt } from '@/data/constants/areas-constants';
-import { busStop, library } from '@/data/constants/local-constants';
-
-export type CampusLocation = {
-  id: string;
-  name: string;
-  area: [number, number][];
-  location: [number, number];
-  icon?: CampusIcon;
-  description: string;
-};
-
-const generateUniqueId = () =>
-  `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+import { generateUniqueId } from '@/config/generate-unique-id';
+import { academyIcon, amazonStoreIcon, auditoriumIcon, cafeteriaIcon, classroomIcon, fieldIcon, labsIcon, libraryIcon, maintenanceIcon, poolIcon, sportCourtIcon } from '@/config/icons-config';
+import { academy_area, amazoniaBeeStore, auditorium_area, cafeteria_area, classrooms_area, engineeringLabs_area, maintenance_area, pool_area, sportsCourt } from '@/data/constants/areas-constants';
+import { library } from '@/data/constants/local-constants';
+import type { CampusLocation } from '@/types/campus-locations';
+import { changingRooms_areas } from './constants/areas/central-campus/changing-rooms';
+import { medVetCampus_areas } from './constants/areas/med-vet-campus';
+import { busStation_points } from './constants/points/bus-stations';
+import { securityGate_points } from './constants/points/security-gates';
 
 export const campusLocations: CampusLocation[] = [
-  {
-    id: generateUniqueId(),
-    name: 'Portaria principal (Entrada)',
-    area: [],
-    location: [-3.0800047811492446, -59.93383221137789],
-    icon: entranceIcon,
-    description: 'Ponto principal de entrada no campus.',
-  },
-  {
-    id: generateUniqueId(),
-    name: 'Portaria lateral',
-    area: [],
-    location: [-3.0768520454339, -59.93050001337518],
-    icon: entranceIcon,
-    description: 'Ponto lateral de entrada no campus.',
-  },
+  ...securityGate_points,
+  ...busStation_points,
+  ...medVetCampus_areas,
+  ...changingRooms_areas,
   {
     id: generateUniqueId(),
     name: 'Quadra esportiva IFAM-CMZL',
@@ -39,30 +21,6 @@ export const campusLocations: CampusLocation[] = [
     location: [-3.0808922013218742, -59.93211699406524],
     icon: sportCourtIcon,
     description: 'Quadra esportiva do campus, utilizada para atividades físicas e esportivas.',
-  },
-  {
-    id: generateUniqueId(),
-    name: 'Parada de ônibus',
-    area: [],
-    location: busStop,
-    icon: busIcon,
-    description: 'Parada de ônibus a frente do campus.',
-  },
-  {
-    id: generateUniqueId(),
-    name: 'Parada de ônibus',
-    area: [],
-    location: [-3.0776590997167426, -59.93240414162743],
-    icon: busIcon,
-    description: 'Parada de ônibus lateral do campus.',
-  },
-  {
-    id: generateUniqueId(),
-    name: 'Parada de ônibus',
-    area: [],
-    location: [-3.076578635005317, -59.930522086056634],
-    icon: busIcon,
-    description: 'Parada de ônibus frente à saída lateral do campus.',
   },
   {
     id: generateUniqueId(),
@@ -99,7 +57,7 @@ export const campusLocations: CampusLocation[] = [
   {
     id: generateUniqueId(),
     name: 'Laboratórios de engenharia de software do campus',
-    area: enginerringLabs_area,
+    area: engineeringLabs_area,
     location: [-3.0772373704891285, -59.93010944849816],
     icon: labsIcon,
     description: 'Laboratórios de engenharia de software do campus, utilizados para atividades acadêmica',
@@ -144,5 +102,4 @@ export const campusLocations: CampusLocation[] = [
     icon: classroomIcon,
     description: 'Salas de aula do campus, utilizadas para atividades acadêmicas e administrativas.',
   },
-
 ];
