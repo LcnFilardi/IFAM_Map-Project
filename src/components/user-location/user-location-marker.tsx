@@ -45,7 +45,7 @@ export function UserLocationMarker({
         } = result.coords;
 
         const userCoords: LatLngTuple = [latitude, longitude];
-
+        console.log("User coordinates:", userCoords);
         // setPosition(userCoords);
         setPosition([-3.079793556126813, -59.93260135720921]);
         setAccuracy(currentAccuracy);
