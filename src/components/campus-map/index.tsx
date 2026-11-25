@@ -2,10 +2,6 @@ import { campusLocations } from "@/data/locations";
 import "leaflet/dist/leaflet.css";
 import { useState } from "react";
 import { MapContainer, Marker, Polygon, TileLayer } from "react-leaflet";
-import {
-  campusBounds,
-  campusPosition,
-} from "../../config/campus-config-constants";
 import { UserLocationMarker } from "../user-location/user-location-marker";
 import { MapRouting } from "./map-routing";
 import { MapZoomTracker } from "./map-zoom-tracker";
@@ -32,12 +28,12 @@ export default function CampusMap() {
   return (
     <div className="w-full mt-10 h-[70dvh] min-h-[450px] max-h-[750px] overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
       <MapContainer
-        center={campusPosition}
-        maxBounds={campusBounds}
+        center={[-3.079507307713751, -59.931027809019604]}
+        // maxBounds={campusBounds}
         maxBoundsViscosity={1}
-        minZoom={16}
+        // minZoom={16}
         zoom={16}
-        maxZoom={19}
+        // maxZoom={19}
         scrollWheelZoom
         className="h-full w-full rounded-2xl"
         attributionControl={false}
